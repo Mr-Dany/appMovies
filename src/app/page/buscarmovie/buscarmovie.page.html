@@ -1,14 +1,14 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="medium">
     <ion-title class="ion-text-center">Buscar Movie</ion-title>
-    <ion-searchbar  animated color="danger"  [(ngModel)]="name" (keyup.enter)="showMovies($event)"  ></ion-searchbar>
+    <ion-searchbar  animated color="dark"  [(ngModel)]="name" (keyup.enter)="showMovies($event)"  ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
   <ion-list>
-    <ion-item  href="#" *ngFor="let item of listmovies" >
+    <ion-item  href="#" *ngFor="let item of listmovies | filtro:name " >
       <ion-label>
         {{item.name}}
         {{item.title}}

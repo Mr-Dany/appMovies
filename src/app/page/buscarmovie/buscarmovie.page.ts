@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ThemoviedbService } from '../../service/themoviedb.service';
-import { IonInfiniteScroll, IonicRouteStrategy } from '@ionic/angular';
+import { IonInfiniteScroll } from '@ionic/angular';
 @Component({
   selector: 'app-buscarmovie',
   templateUrl: './buscarmovie.page.html',
@@ -22,12 +22,12 @@ export class BuscarmoviePage implements OnInit {
       this.nombrebusqueda=this.name;
       this.numberPage=1;
     }
-    this.themoviedbService.getMovies(this.name, this.numberPage).then(data => {
-      debugger
+    this.themoviedbService.getMovies(this.name, this.numberPage).then (data => {
+      //debugger
       for (let i = 0; i < data["results"].length; i++) {
         this.listmovies.push(data["results"][i]);   
       }
-      debugger
+      //debugger
       if (this.listmovies.length == 200) {
         event.target.disabled = true;
       }
@@ -35,10 +35,13 @@ export class BuscarmoviePage implements OnInit {
       event.target.complete();
       
     }).catch((err) => {
-        debugger
+        //debugger
     });
   }
   toggleInfiniteScroll() {
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
+  }
+  buscar( event ){
+    this.name = event.detail.value; 
   }
 }
