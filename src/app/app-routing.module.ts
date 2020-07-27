@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'buscarmovie',
+    loadChildren: () => import('./page/buscarmovie/buscarmovie.module').then( m => m.BuscarmoviePageModule)
+  },
 ];
 
 @NgModule({
