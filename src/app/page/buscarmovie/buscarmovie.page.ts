@@ -8,6 +8,7 @@ import { IonInfiniteScroll } from '@ionic/angular';
 })
 export class BuscarmoviePage implements OnInit {
   name:string;
+  textobuscar:string="";
   numberPage:number=1;
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   constructor(private themoviedbService:ThemoviedbService) { }
@@ -16,26 +17,17 @@ export class BuscarmoviePage implements OnInit {
   ngOnInit() {
     this.showMovies(event);
   }
-  showMovies(event){   
-    if(this.name!=this.nombrebusqueda){
-      this.listmovies.length=0;
-      this.nombrebusqueda=this.name;
-      this.numberPage=1;
-    }
-    this.themoviedbService.getMovies(this.name, this.numberPage).then (data => {
-      //debugger
+  showMovies(event){
+    this.themoviedbService.getMovies().then (data => {//debugger
       for (let i = 0; i < data["results"].length; i++) {
         this.listmovies.push(data["results"][i]);   
-      }
-      //debugger
+      }//debugger
       if (this.listmovies.length == 200) {
         event.target.disabled = true;
       }
       this.numberPage++;
       event.target.complete();
-      
-    }).catch((err) => {
-        //debugger
+    }).catch((err) => {//debugger
     });
   }
   toggleInfiniteScroll() {

@@ -12,7 +12,7 @@ export class FiltroPipe implements PipeTransform {
     texto = texto.toLowerCase();
 
     return listmovies.filter( item => {
-      return item.name.toLowerCase()
+      return item.title.toLowerCase()
               .include(texto );
     });
   }
