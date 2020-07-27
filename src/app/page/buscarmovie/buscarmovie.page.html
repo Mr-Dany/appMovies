@@ -1,33 +1,16 @@
 <ion-header>
   <ion-toolbar>
     <ion-title class="ion-text-center">Buscar Movie</ion-title>
-    <ion-searchbar  animated color="danger"  [(ngModel)]="name" (keyup.enter)="showMovies($event)"  ></ion-searchbar>
+    <ion-searchbar  animated color="danger" (ionChange)="buscar( $event )" ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
   <ion-list>
-    <ion-item  href="#" *ngFor="let item of listmovies" >
-      <ion-label>
-        {{item.name}}
+    <ion-item *ngFor="let item of listmovies | filtro: textoBuscar: 'title' " >
         {{item.title}}
-      </ion-label>
-      <ion-chip color="primary" mode="ios" outline="true">
-        <ion-label>{{item.popularity}}</ion-label>
-      </ion-chip>
-      <ion-thumbnail slot="start" *ngIf="item.poster_path==null">
-        <img src="assets/img/Captura.png">
-      </ion-thumbnail>
-      <ion-thumbnail slot="start" *ngIf="item.poster_path">
-        <img src="https://image.tmdb.org/t/p/original/{{item.poster_path}}">
-      </ion-thumbnail>
     </ion-item>
   </ion-list>
-  <ion-infinite-scroll threshold="100px" (ionInfinite)="showMovies($event)">
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="Cargando...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+ 
 </ion-content>
