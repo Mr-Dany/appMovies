@@ -14,7 +14,7 @@ export class BuscarmoviePage implements OnInit {
   listmovies:any=[];
   nombrebusqueda:string;
   ngOnInit() {
-    //this.showMovies();
+    this.showMovies(event);
   }
   showMovies(event){   
     if(this.name!=this.nombrebusqueda){
