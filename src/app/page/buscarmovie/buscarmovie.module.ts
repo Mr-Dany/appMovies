@@ -8,7 +8,6 @@ import { BuscarmoviePageRoutingModule } from './buscarmovie-routing.module';
 
 import { BuscarmoviePage } from './buscarmovie.page';
 import { PipesModule } from '../../pipes/pipes.module';
-
 @NgModule({
   imports: [
     CommonModule,

@@ -21,5 +21,4 @@ export class BuscarmoviePage implements OnInit {
     console.log(event);
     this.textoBuscar = event.detail.value;
   }
-  
 }

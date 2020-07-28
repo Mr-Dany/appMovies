@@ -4,13 +4,10 @@
     <ion-searchbar  animated color="danger" (ionChange)="buscar( $event )" ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
-
-
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of listmovies | filtro: textoBuscar: 'title' " >
         {{item.title}}
     </ion-item>
   </ion-list>
- 
 </ion-content>
