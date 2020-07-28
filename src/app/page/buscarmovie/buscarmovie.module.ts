@@ -14,7 +14,8 @@ import { PipesModule } from '../../pipes/pipes.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    BuscarmoviePageRoutingModule,PipesModule
+    BuscarmoviePageRoutingModule,
+    PipesModule
   ],
   declarations: [BuscarmoviePage]
 })

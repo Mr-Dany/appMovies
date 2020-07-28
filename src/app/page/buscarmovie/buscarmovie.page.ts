@@ -7,18 +7,28 @@ import { IonInfiniteScroll } from '@ionic/angular';
   styleUrls: ['./buscarmovie.page.scss'],
 })
 export class BuscarmoviePage implements OnInit {
-  name:string;
-  textobuscar:string="";
-  numberPage:number=1;
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  //name:string;
+  textobuscar = "" ;
+  //numberPage:number=1;
+  //@ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   constructor(private themoviedbService:ThemoviedbService) { }
-  listmovies:any=[];
+  listmovies : any[] = [];
   nombrebusqueda:string;
-  ngOnInit() {
-    this.showMovies(event);
+  buscar( event ){
+    console.log(event);
+    this.textobuscar = event.detail.value; 
   }
-  showMovies(event){
-    this.themoviedbService.getMovies().then (data => {//debugger
+  ngOnInit() {
+    console.log(this.listmovies);
+    this.themoviedbService.getMovies().subscribe(data =>{
+      for (let i = 0; i < data["results"].length; i++) {
+        this.listmovies.push(data["results"][i]);   
+      }
+    });
+    //this.showMovies(event);
+  }
+  /*showMovies(event){
+    this.themoviedbService.getMovies().then(data => {//debugger
       for (let i = 0; i < data["results"].length; i++) {
         this.listmovies.push(data["results"][i]);   
       }//debugger
@@ -32,8 +42,6 @@ export class BuscarmoviePage implements OnInit {
   }
   toggleInfiniteScroll() {
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
-  }
-  buscar( event ){
-    this.name = event.detail.value; 
-  }
+  }*/ 
+  
 }
