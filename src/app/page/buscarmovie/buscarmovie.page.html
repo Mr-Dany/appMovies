@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar color="medium">
     <ion-title class="ion-text-center">Buscar Movie</ion-title>
-    <ion-searchbar  animated color="dark" (ionChange)="buscar( $event )"  ></ion-searchbar>
-    <!--<ion-searchbar  animated color="dark"  (keyup.enter)="showMovies($event)" (ionChange)="buscar( $event )"  ></ion-searchbar>-->
+    <ion-searchbar  animated color="dark" (keyup.enter)="showMovies($event)"  (ionChange)="buscar( $event )"  ></ion-searchbar>
+    <!--<ion-searchbar  animated color="dark"  (ionChange)="buscar( $event )"  ></ion-searchbar>-->
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
   <ion-list>
-    <ion-item  href="#" *ngFor="let item of listmovies | filtro: textobuscar : 'title' " >
+    <ion-item  href="#" *ngFor="let item of listmovies  " >
         {{item.title}}
     </ion-item>
   </ion-list>
