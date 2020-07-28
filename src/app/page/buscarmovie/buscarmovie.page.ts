@@ -19,16 +19,10 @@ export class BuscarmoviePage implements OnInit {
     this.textobuscar = event.detail.value; 
   }
   ngOnInit() {
-   /* console.log(this.listmovies);
-    this.themoviedbService.getMovies().subscribe(data =>{
-      for (let i = 0; i < data["results"].length; i++) {
-        this.listmovies.push(data["results"][i]);   
-      }
-    });*/
     this.showMovies(event);
   }
   showMovies(event){
-    this.themoviedbService.getMovies().then(data => {//debugger
+    this.themoviedbService.getMovies(/*this.name, this.numberPage*/).then(data => {//debugger
       for (let i = 0; i < data["results"].length; i++) {
         this.listmovies.push(data["results"][i]);   
       }//debugger
