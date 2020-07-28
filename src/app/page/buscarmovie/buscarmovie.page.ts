@@ -22,6 +22,11 @@ export class BuscarmoviePage implements OnInit {
     this.showMovies(event);
   }
   showMovies(event){
+    if(this.name!=this.nombrebusqueda){
+      this.listmovies.length=0;
+      this.nombrebusqueda=this.name;
+      this.numberPage=1;
+    }
     this.themoviedbService.getMovies(/*this.name, this.numberPage*/).then(data => {//debugger
       for (let i = 0; i < data["results"].length; i++) {
         this.listmovies.push(data["results"][i]);   
