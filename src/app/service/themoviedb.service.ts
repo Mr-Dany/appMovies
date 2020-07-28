@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-/*  export class ThemoviedbService {
+export class ThemoviedbService {
   constructor(private http: HttpClient) { }
   getMovies() {
     return this.http.get('https://api.themoviedb.org/3/search/movie?api_key=ed10bd8c6a2daeb3b35740779b186c66&language=en-US&query=inside%20out&page=1&include_adult=false')
   }
 }
-*/
+/*
 export class ThemoviedbService {
   constructor(private http: HttpClient) { }
   getMovies() {
@@ -25,3 +25,4 @@ export class ThemoviedbService {
   }
 }
 
+*/
