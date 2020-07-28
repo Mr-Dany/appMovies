@@ -22,20 +22,17 @@ export class BuscarmoviePage implements OnInit {
       this.nombrebusqueda=this.name;
       this.numberPage=1;
     }
-    this.themoviedbService.getMovies(this.name, this.numberPage).then(data => {
-      debugger
+    this.themoviedbService.getMovies(this.name, this.numberPage).then(data => {//debugger
       for (let i = 0; i < data["results"].length; i++) {
         this.listmovies.push(data["results"][i]);   
-      }
-      debugger
+      }//debugger
       if (this.listmovies.length == 200) {
         event.target.disabled = true;
       }
       this.numberPage++;
       event.target.complete();
       
-    }).catch((err) => {
-        debugger
+    }).catch((err) => {//debugger
     });
   }
   toggleInfiniteScroll() {
