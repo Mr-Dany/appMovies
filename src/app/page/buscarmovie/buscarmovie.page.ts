@@ -7,10 +7,10 @@ import { IonInfiniteScroll } from '@ionic/angular';
   styleUrls: ['./buscarmovie.page.scss'],
 })
 export class BuscarmoviePage implements OnInit {
-  //name:string;
+  name:string;
   textobuscar = "" ;
-  //numberPage:number=1;
-  //@ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  numberPage:number=1;
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   constructor(private themoviedbService:ThemoviedbService) { }
   listmovies : any[] = [];
   nombrebusqueda:string;
@@ -19,15 +19,15 @@ export class BuscarmoviePage implements OnInit {
     this.textobuscar = event.detail.value; 
   }
   ngOnInit() {
-    console.log(this.listmovies);
+   /* console.log(this.listmovies);
     this.themoviedbService.getMovies().subscribe(data =>{
       for (let i = 0; i < data["results"].length; i++) {
         this.listmovies.push(data["results"][i]);   
       }
-    });
-    //this.showMovies(event);
+    });*/
+    this.showMovies(event);
   }
-  /*showMovies(event){
+  showMovies(event){
     this.themoviedbService.getMovies().then(data => {//debugger
       for (let i = 0; i < data["results"].length; i++) {
         this.listmovies.push(data["results"][i]);   
@@ -42,6 +42,6 @@ export class BuscarmoviePage implements OnInit {
   }
   toggleInfiniteScroll() {
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
-  }*/ 
+  }
   
 }

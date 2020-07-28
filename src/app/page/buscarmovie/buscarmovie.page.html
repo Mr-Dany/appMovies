@@ -9,9 +9,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item  href="#" *ngFor="let item of listmovies | filtro: textobuscar " >
-        {{item.original_name}}
-        {{item.name}}
+    <ion-item  href="#" *ngFor="let item of listmovies | filtro: textobuscar : 'title' " >
         {{item.title}}
     </ion-item>
   </ion-list>
